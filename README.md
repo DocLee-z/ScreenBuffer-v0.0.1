@@ -6,7 +6,7 @@
 
 ## 2.关于ScreenBuffer软件
 
-### 用户需要保证"pics""temp_frame""ui"三个文件处于同一级别且与"ScreenBuffer.exe"在同一目录下，要不然程序会崩溃!!!
+### 用户需要保证"pics""temp_frame""ui"三个文件处于同一级别且与"ScreenBuffer.exe"在同一目录下，要不然程序会崩溃!!!ps:如果没有"temp_frame"文件夹在第一次运行的时候会新建一个。
 
 ## 3.关于
 
