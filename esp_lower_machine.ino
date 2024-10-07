@@ -5,12 +5,10 @@
 #include <TJpg_Decoder.h>
 TFT_eSPI tft = TFT_eSPI(); 
 //------在这里定义你的各种参数-------//
-const char* ssid     = "Visual aids"; //填写你的wifi名字
-const char* password = "kust232751"; //填写你的wifi密码
-const char* service_ip = "192.168.220.176"; //上位机IP地址
-int httpPort = 5000; //设置上位机端口
-
-//----下面的参数用于loadingcartoon函数-----//
+const char* ssid     = ""; //填写你的wifi名字
+const char* password = ""; //填写你的wifi密码
+const char* service_ip = ""; //上位机IP地址
+int httpPort = 5200; //设置上位机端口
 
 //-------以下参数用于收发图片--------------//
 WiFiClient client; //初始化一个客户端对象
@@ -37,13 +35,13 @@ void setup() {
   tft.fillScreen(TFT_WHITE); //白屏
   tft.setTextColor(TFT_BLACK, TFT_WHITE);
   tft.fillRect(20, 100, 200, 20, TFT_WHITE);
-  tft.drawString("connecting..", 30, 150, 4);
+  
   WiFi.begin(ssid, password); //连接wifi
   delay(1000); //等待1秒
   while (WiFi.status() != WL_CONNECTED) {
-    for (byte n = 0; n < 10; n++) { //每500毫秒检测一次状态
+    for (byte n = 0; n < 10; n++) { //每400毫秒检测一次状态
       //loading(50);
-      delay(500);
+      delay(400);
     }
   }
 
@@ -60,7 +58,6 @@ void setup() {
     Serial.printf("Connect failed");
   }
   
-  tft.drawString("connected....", 30, 150, 4);
   delay(2000);
   tft.fillScreen(TFT_BLACK);
   TJpgDec.setJpgScale(1);
